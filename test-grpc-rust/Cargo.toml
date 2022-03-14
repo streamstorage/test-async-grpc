@@ -1,0 +1,15 @@
+[package]
+name = "test-grpc-rust"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tokio = { version = "1.1", features = ["full"] }
+tonic = { version = "0.5", features = ["tls"] }
+futures = "0.3.17"
+prost = "0.8"
+
+[build-dependencies]
+tonic-build = "0.5"

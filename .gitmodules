@@ -1,0 +1,3 @@
+[submodule "extern/asio-grpc"]
+	path = extern/asio-grpc
+	url = https://github.com/Tradias/asio-grpc.git
