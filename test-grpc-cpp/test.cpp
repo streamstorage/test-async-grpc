@@ -121,9 +121,11 @@ co_async<void> test_grpc_call(std::shared_ptr<RpcClient> client, const string& s
   cout << "call " << no << ": " << reply << endl;
 }
 
-int main() {
+int main(int argc, const char** argv) {
+  const string host(argc >= 2 ? argv[1] : "127.0.0.1:9090");
+
   auto context = std::make_shared<Context>();
-  auto client = std::make_shared<RpcClient>("127.0.0.1:9090", context);
+  auto client = std::make_shared<RpcClient>(host, context);
 
   int test_grpc_call_num = 10000;
   std::future<void> futures[test_grpc_call_num];

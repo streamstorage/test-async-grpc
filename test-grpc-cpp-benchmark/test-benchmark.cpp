@@ -46,9 +46,9 @@ void make_requests(agrpc::GrpcContext& grpc_context, pravega_grpc::ControllerSer
 
 int main(int argc, const char** argv)
 {
-    const auto thread_count = argc >= 2 ? std::stoi(argv[1]) : 1;
-    const std::chrono::seconds runtime_seconds{argc >= 3 ? std::stoi(argv[2]) : 60};
-    std::string host{"localhost:9090"};
+    const std::string host(argc >= 2 ? argv[1] : "127.0.0.1:9090");
+    const auto thread_count = argc >= 3 ? std::stoi(argv[2]) : 1;
+    const std::chrono::seconds runtime_seconds{argc >= 4 ? std::stoi(argv[3]) : 80};
 
     boost::asio::io_context io_context{1};
     boost::asio::basic_signal_set signals{io_context.get_executor(), SIGINT, SIGTERM};

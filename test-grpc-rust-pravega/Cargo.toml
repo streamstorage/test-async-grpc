@@ -1,0 +1,12 @@
+[package]
+name = "test-grpc-rust-pravega"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pravega-client = { git = "https://github.com/pravega/pravega-client-rust", rev = "6f67ec1cb8a78cfa0fb6f185bee7f0cf6f70c7cb" }
+pravega-client-config = { git = "https://github.com/pravega/pravega-client-rust", package = "pravega-client-config", rev = "6f67ec1cb8a78cfa0fb6f185bee7f0cf6f70c7cb" }
+pravega-client-shared = { git = "https://github.com/pravega/pravega-client-rust", package = "pravega-client-shared", rev = "6f67ec1cb8a78cfa0fb6f185bee7f0cf6f70c7cb" }
+futures = "0.3.17"

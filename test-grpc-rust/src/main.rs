@@ -1,10 +1,10 @@
 use futures::stream::FuturesUnordered;
 use futures::stream::StreamExt;
-use std::time::{Instant};
-
 use std::convert::Into;
+use std::env;
 use std::result::Result as StdResult;
 use std::str::FromStr;
+use std::time::Instant;
 use tokio::runtime::Handle;
 use tokio::sync::RwLock;
 use tonic::transport::{Channel, Endpoint, Uri};
@@ -72,8 +72,14 @@ impl RpcClient {
 }
 
 fn main() {
+    let args: Vec<String> = env::args().collect();
+    let host = if args.len() > 1 {
+        args[1].clone()
+    } else {
+        "127.0.0.1:9090".to_string()
+    };
+
     let scope = "hello5".to_string();
-    let host = "127.0.0.1:9090".to_string();
     let runtime = tokio::runtime::Runtime::new().expect("create runtime");
     let client = RpcClient::new(runtime.handle(), &host);
 
