@@ -8,5 +8,5 @@ mdkir build
 cd build
 cmake -DCMAKE_PREFIX_PATH=/usr/local/share/grpc-1.43.2 -DBOOST_ROOT=/usr/local/share/boost_1_78_0 ..
 make
-./test-benchmark or ./test-benchmark 10.247.97.19:9090
+./test or ./test 10.247.97.19:9090
 ```
